@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS 
 import json
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -13,6 +14,7 @@ from bs4 import BeautifulSoup
 from webdriver_manager.chrome import ChromeDriverManager
 
 app = Flask(__name__)
+CORS(app) 
 
 def scrape_company_info(url):
     # Default fallback dictionary
