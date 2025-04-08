@@ -15,7 +15,14 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 app = Flask(__name__)
 
-CORS(app, resources={r"/*/*": {"origins": "*"}}) 
+CORS(app, resources={r"/*": {
+"origins": [
+"http://localhost:3000",
+"https://stage-isalespilot.idolcodesource.in"
+],
+"allow_headers": ["Content-Type", "Authorization", "userid"],
+"supports_credentials": True
+}});
 
 def scrape_company_info(url):
     # Default fallback dictionary
