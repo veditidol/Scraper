@@ -14,7 +14,8 @@ from bs4 import BeautifulSoup
 from webdriver_manager.chrome import ChromeDriverManager
 
 app = Flask(__name__)
-CORS(app) 
+
+CORS(app, resources={r"/*/*": {"origins": "*"}}) 
 
 def scrape_company_info(url):
     # Default fallback dictionary
